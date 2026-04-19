@@ -1,7 +1,6 @@
 "use server"
 import { createClient } from "next-sanity"
 import { revalidatePath } from "next/cache" // الخطأ 1: إضافة الاستيراد
-import { Resend } from "resend"
 
 const dataClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -16,7 +15,6 @@ export async function updateDataHero(formData) {
   const description = formData.get("description")
   const image = formData.get("heroImage") // تأكد أن name="heroImage" في الـ Input
   // ## 
-  const resend = new Resend(process.env.RESEND_API_KEY)
 
   let imageAsset = null
 
@@ -48,13 +46,9 @@ export async function updateDataHero(formData) {
         }),
       })
       .commit()
-    await resend.emails.send({
-  from: "docteur",
-  to: "wissalinas6@gmail.com",
-  subject: "Test Email 🚀",
-  html: "<h1>Test réussi</h1><p>Votre email fonctionne !</p>",
+
   
-})
+
     revalidatePath("/") 
     revalidatePath("/dashboard/hero") // تحديث الداشبورد أيضاً لرؤية الصورة الجديدة
     

@@ -24,7 +24,7 @@ export default function VerifyPage() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-slate-50 p-4">
+    <div className="flex justify-center items-center min-h-[80vh] bg-slate-50 p-4">
       <div className="bg-white shadow-xl rounded-2xl p-8 md:p-12 flex flex-col items-center justify-center max-w-md w-full border border-slate-100">
         
         {/* أيقونة قفل بسيطة لإعطاء انطباع بالأمان */}
