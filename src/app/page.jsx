@@ -1,9 +1,9 @@
-import React from 'react'
+import Hero from "./(website)/Hero";
 
-function page() {
+export default function Home() {
   return (
-    <div>page</div>
-  )
+<div className="">
+  <Hero/>
+</div>
+  );
 }
-
-export default page

@@ -1,9 +1,7 @@
-"use server"; // هذا الكود يخدم غير فالسيرفر (ماشي في المتصفح)
+"use server";
+import { createClient } from "next-sanity";
+import { Resend } from "resend";
 
-import { createClient } from "next-sanity"; // ربط مع Sanity (قاعدة البيانات)
-import { Resend } from "resend"; // خدمة إرسال الإيميلات
-
-// إعداد الاتصال مع Sanity
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
@@ -12,48 +10,44 @@ const client = createClient({
   apiVersion: "2024-04-16",
 });
 
-// إعداد خدمة الإيميل
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Server Action لإنشاء الحجز
 export default async function createReservations(formData) {
-
-  // 🧾 جلب البيانات من الفورم
   const name = formData.get("name");
   const email = formData.get("email");
-  const date = formData.get("date"); // التاريخ مهم باش نديرو limit
+  const date = formData.get("date"); // ❗ ضروري التاريخ
 
-  // 🔐 توليد كود عشوائي (6 أرقام)
+  // 🔐 توليد الكود
   const code = String(Math.floor(100000 + Math.random() * 900000));
 
-  // 🔍 البحث عن الحجوزات لنفس email + نفس date
+  // 🔍 نجيب الحجوزات لنفس email + date
   const reservations = await client.fetch(
     `*[_type == "reservation" && email == $email && date == $date]`,
     { email, date }
   );
 
-  // 🧠 حساب عدد الحجوزات
+  // 🧠 نحسب العدد
   const count = reservations.length;
 
-  // ❌ إذا وصل 2 حجوزات في نفس اليوم → نمنع
+  // ❌ إذا وصل 2 → نمنع
   if (count >= 2) {
     return {
       success: false,
-      message: "عدرا لا يمكنك عمل اكتر من حجزين في نفس اليوم!",
+      message: "عدرا لا يمكنك عمل اكتر من حجزين في نفس اليوم",
     };
   }
 
-  // 💾 إنشاء الحجز في قاعدة البيانات
+  // 💾 إنشاء الحجز
   await client.create({
     _type: "reservation",
     name,
     email,
-    date,
+    date, // ❗ خاصو يتخزن
     code,
-    isVerified: false, // الحجز مازال غير مؤكد
+    isVerified: false,
   });
 
-  // 📧 إرسال كود التحقق عبر الإيميل
+  // 📧 إرسال الإيميل
   await resend.emails.send({
     from: "onboarding@resend.dev",
     to: email,
@@ -70,6 +64,5 @@ export default async function createReservations(formData) {
     `,
   });
 
-  // ✅ إرجاع نجاح العملية
   return { success: true };
 }
