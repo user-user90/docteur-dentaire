@@ -20,7 +20,7 @@ async function Hero() {
   if (!data) return null;
 
   return (
-    <header className="relative bg-white overflow-hidden min-h-screen flex items-center">
+    <header className="relative bg-linear-to-r from-[#F0F7FF] to-[#FEFFFF] overflow-hidden min-h-screen flex items-center">
       {/* خلفية جمالية خفيفة (Decorative Background) */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-cyan-50 rounded-full blur-3xl opacity-50" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-blue-50 rounded-full blur-3xl opacity-50" />
@@ -31,24 +31,26 @@ async function Hero() {
           {/* Section Info: نصوص واضحة وجذابة */}
           <div className="flex-1 text-center lg:text-left space-y-8">
             <div className="space-y-2">
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-cyan-600 leading-[1.1] tracking-tight">
+              {/* ## title */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-cyan-600  tracking-tight">
                 {data.title}
               </h1>
+              {/* ## subtitle */}
               <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-slate-800 leading-[1.2]">
                 {data?.subtitle}
               </h2>
             </div>
 
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+            <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
               {data.description}
             </p>
             
             {/* أزرار التفاعل: مع تأثيرات Hover متطورة */}
             <div className="flex flex-wrap gap-5 justify-center lg:justify-start pt-4">
-              <Link href={"/reservations"}  className="bg-cyan-600 text-white px-10 py-5 rounded-2xl font-bold hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-100 active:scale-95 flex items-center gap-2">
+              <Link href={"/reservations"}  className="bg-[#2563EA] text-white px-10 py-5 rounded-2xl font-bold hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-100 active:scale-95 flex items-center gap-2">
                 <span>📅</span> Prendre rendez-vous
               </Link>
-              <button className="bg-white border-2 border-slate-200 text-slate-700 px-10 py-5 rounded-2xl font-bold hover:border-cyan-600 hover:text-cyan-600 transition-all active:scale-95 shadow-sm">
+              <button className="bg-[#FEF2F2] border-2 border-red-400 text-[#CD3038] px-10 py-5 rounded-2xl font-bold hover:border-cyan-600 hover:text-cyan-600 transition-all active:scale-95 shadow-sm">
                 Nos Services
               </button>
             </div>

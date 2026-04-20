@@ -1,14 +1,18 @@
+"use client"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 function Navbar() {
+  const pathname = usePathname()
+  if (pathname.startsWith('/studio')) return null
   return (
     <div className="bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-12 py-4">
         
         {/* Logo - تحسين تباعد الحروف والوزن */}
         <Link href={"/"} className="text-2xl font-extrabold tracking-tight">
-          <span className="text-cyan-600">Docteur</span>
-          <span className="text-slate-800">Sourire</span>
+          <span className="text-cyan-600">Doctor</span>
+          <span className="text-slate-800">Maroc</span>
         </Link>
 
         {/* Links - إضافة خط سفلي ناعم عند التمرير */}
@@ -30,9 +34,9 @@ function Navbar() {
         <div className="flex items-center gap-4">
           <Link 
             href={"/"} 
-            className="hidden sm:block bg-slate-900 text-white px-7 py-2.5 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg shadow-slate-100 active:scale-95"
+            className="hidden sm:block bg-[#2563EA] text-white px-7 py-2.5 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg shadow-slate-100 active:scale-95"
           >
-            Contact
+            Prendre Rendez-vous
           </Link>
           
           {/* أيقونة للجوال (تبسيط) */}
