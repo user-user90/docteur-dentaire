@@ -21,22 +21,19 @@ async function Hero() {
 
   return (
     <header className="relative bg-linear-to-r from-[#F0F7FF] to-[#FEFFFF] overflow-hidden min-h-screen flex items-center">
-      {/* خلفية جمالية خفيفة (Decorative Background) */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-cyan-50 rounded-full blur-3xl opacity-50" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-[400px] h-[400px] bg-blue-50 rounded-full blur-3xl opacity-50" />
 
       <div className="container mx-auto px-6 lg:px-12 py-20 relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           
           {/* Section Info: نصوص واضحة وجذابة */}
           <div className="flex-1 text-center lg:text-left space-y-8">
             <div className="space-y-2">
               {/* ## title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-cyan-600  tracking-tight">
+              <h1 className="text-5xl md:text-5xl lg:text-7xl font-extrabold text-cyan-600  tracking-tight">
                 {data.title}
               </h1>
               {/* ## subtitle */}
-              <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-slate-800 leading-[1.2]">
+              <h2 className="text-4xl md:text-4xl lg:text-6xl font-bold text-slate-800 leading-[1.2]">
                 {data?.subtitle}
               </h2>
             </div>
@@ -73,15 +70,14 @@ async function Hero() {
           <div className="flex-1 w-full max-w-2xl">
             <div className="relative group">
               {/* الإطار المزخرف خلف الصورة */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-100 to-blue-100 rounded-[2.5rem] transform rotate-3 group-hover:rotate-0 transition-transform duration-500" />
               
-              <div className="relative h-[450px] md:h-[550px] w-full rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white bg-white">
+              <div className=" h-[450px] md:h-[550px] w-full rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white bg-white">
                 {data.heroImage && (
                   <Image
                     src={data.heroImage}
                     alt={data.title}
                     fill
-                    className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover transform rounded-md group-hover:scale-105 transition-transform duration-700"
                     priority
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
