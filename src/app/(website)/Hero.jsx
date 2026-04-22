@@ -16,75 +16,59 @@ const getdata = async () => {
 
 async function Hero() {
   const data = await getdata()
-
   if (!data) return null;
 
   return (
-    <header className="relative bg-linear-to-r from-[#F0F7FF] to-[#FEFFFF] overflow-hidden min-h-screen flex items-center">
+    <header className="relative min-h-screen w-full flex items-center overflow-hidden">
+      {/* خلفية الصورة */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/h.jpg" 
+          alt="Medical Background"
+          fill
+          className="object-cover object-center scale-105" // أضفت scale خفيف ليعطي عمقاً
+          priority
+        />
+        {/* تحسين الطبقة الشفافة لتكون أقوى في الموبايل */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 md:via-transparent to-transparent z-10" />
+      </div>
 
-      <div className="container mx-auto px-6 lg:px-12 py-20 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+      <div className="container mx-auto px-6 lg:px-12 relative z-20">
+        {/* المحتوى مع أنيماسيون بسيط عبر Tailwind */}
+        <div className="max-w-3xl space-y-8 animate-in fade-in slide-in-from-left-10 duration-1000">
           
-          {/* Section Info: نصوص واضحة وجذابة */}
-          <div className="flex-1 text-center lg:text-left space-y-8">
-            <div className="space-y-2">
-              {/* ## title */}
-              <h1 className="text-5xl md:text-5xl lg:text-7xl font-extrabold text-cyan-600  tracking-tight">
-                {data.title}
-              </h1>
-              {/* ## subtitle */}
-              <h2 className="text-4xl md:text-4xl lg:text-6xl font-bold text-slate-800 leading-[1.2]">
-                {data?.subtitle}
-              </h2>
-            </div>
-
-            <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1]">
+              <span className="text-cyan-600 block mb-2">{data.title}</span>
+              {data.subtitle}
+            </h1>
+            <p className="text-xl text-slate-700 font-medium leading-relaxed max-w-xl border-l-4 border-cyan-600 pl-4">
               {data.description}
             </p>
-            
-            {/* أزرار التفاعل: مع تأثيرات Hover متطورة */}
-            <div className="flex flex-wrap gap-5 justify-center lg:justify-start pt-4">
-              <Link href={"/reservations"}  className="bg-[#2563EA] text-white px-10 py-5 rounded-2xl font-bold hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-100 active:scale-95 flex items-center gap-2">
-                <span>📅</span> Prendre rendez-vous
-              </Link>
-              <button className="bg-[#FEF2F2] border-2 border-red-400 text-[#CD3038] px-10 py-5 rounded-2xl font-bold hover:border-cyan-600 hover:text-cyan-600 transition-all active:scale-95 shadow-sm">
-                Nos Services
-              </button>
-            </div>
-
-            {/* إحصائيات سريعة (إضافة اختيارية تعطي ثقة) */}
-            <div className="pt-10 flex gap-8 justify-center lg:justify-start border-t border-slate-100">
-              <div>
-                <p className="text-2xl font-bold text-slate-800">10k+</p>
-                <p className="text-sm text-slate-500 font-medium">Patients Satisfaits</p>
-              </div>
-              <div className="w-[1px] bg-slate-200" />
-              <div>
-                <p className="text-2xl font-bold text-slate-800">15+</p>
-                <p className="text-sm text-slate-500 font-medium">Ans d'Expérience</p>
-              </div>
-            </div>
           </div>
 
-          {/* Section Image: تصميم إطار عصري */}
-          <div className="flex-1 w-full max-w-2xl">
-            <div className="relative group">
-              {/* الإطار المزخرف خلف الصورة */}
-              
-              <div className=" h-[450px] md:h-[550px] w-full rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white bg-white">
-                {data.heroImage && (
-                  <Image
-                    src={data.heroImage}
-                    alt={data.title}
-                    fill
-                    className="object-cover transform rounded-md group-hover:scale-105 transition-transform duration-700"
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                )}
-                {/* Overlay خفيف */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-              </div>
+          <div className="flex flex-wrap gap-4 pt-4">
+            <Link 
+              href="/reservations" 
+              className="bg-cyan-600 text-white px-10 py-5 rounded-2xl font-extrabold hover:bg-cyan-700 transition-all shadow-2xl shadow-cyan-200 active:scale-95"
+            >
+              Prendre rendez-vous
+            </Link>
+            <button className="bg-white/40 backdrop-blur-md border-2 border-white/60 text-slate-800 px-10 py-5 rounded-2xl font-extrabold hover:bg-white transition-all shadow-sm">
+              Nos Services
+            </button>
+          </div>
+
+          {/* الإحصائيات مع خلفية زجاجية خفيفة في الموبايل */}
+          <div className="pt-10 flex gap-10 border-t border-slate-300/30">
+            <div className="group cursor-default">
+              <p className="text-3xl font-black text-slate-900 group-hover:text-cyan-600 transition-colors">10k+</p>
+              <p className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Patients</p>
+            </div>
+            <div className="w-[1px] bg-slate-300/50 h-12" />
+            <div className="group cursor-default">
+              <p className="text-3xl font-black text-slate-900 group-hover:text-cyan-600 transition-colors">15+</p>
+              <p className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Expérience</p>
             </div>
           </div>
 
