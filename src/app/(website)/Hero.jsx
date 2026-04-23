@@ -16,62 +16,51 @@ const getdata = async () => {
 
 async function Hero() {
   const data = await getdata()
-  if (!data) return null;
+  if (!data || !data.heroImage) return null;
 
   return (
-    <header className="relative min-h-screen w-full flex items-center overflow-hidden">
-      {/* خلفية الصورة */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={data?.heroImage} 
-          alt="Medical Background"
-          fill
-          className="object-cover object-center scale-105" // أضفت scale خفيف ليعطي عمقاً
-          priority
-        />
-        {/* تحسين الطبقة الشفافة لتكون أقوى في الموبايل */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent  via-blue-300 to-transparent z-10" />
-      </div>
+    <header className="relative w-full h-screen overflow-hidden flex items-center">
+      {/* 1. الصورة كخلفية كاملة */}
+      <Image
+        src={data.heroImage}
+        alt={data.title}
+        fill
+        className="object-cover z-0"
+        priority
+      />
 
-      <div className="flex flex-col items-start justify-start container mx-auto px-6 lg:px-12 relative z-20">
-        {/* المحتوى مع أنيماسيون بسيط عبر Tailwind */}
-        <div className="max-w-3xl space-y-8 animate-in fade-in slide-in-from-left-10 duration-1000">
+      {/* 2. طبقة تغميق (Overlay) لضمان وضوح الخط */}
+      <div className="absolute inset-0 bg-black/40 z-10" />
+
+      {/* 3. محتوى النصوص والأزرار */}
+      <div className="container mx-auto px-6 relative z-20 text-center md:text-left">
+        <div className="max-w-3xl space-y-6">
           
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-black text-cyan-800 leading-[1.1]">
-              <span className="text-slate-900 block mb-2">{data.title}</span>
-              {data.subtitle}
+          <div className="space-y-2">
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-tight">
+              {data.title}
             </h1>
-            <p className="text-xl text-slate-800 font-medium leading-relaxed max-w-xl border-l-4 border-cyan-600 pl-4">
-              {data.description}
-            </p>
+            <h2 className="text-2xl md:text-4xl font-bold text-cyan-400">
+              {data.subtitle}
+            </h2>
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <p className="text-lg md:text-xl text-gray-100 max-w-2xl leading-relaxed font-medium">
+            {data.description}
+          </p>
+
+          <div className="flex flex-wrap gap-4 pt-6 justify-center md:justify-start">
             <Link 
               href="/reservations" 
-              className=" bg-black text-white  flex items-center  rounded-md py-2 px-4 font-bold hover:bg-cyan-700 transition-all shadow-2xl shadow-cyan-200 active:scale-95"
+              className="bg-cyan-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-cyan-600 transition-all shadow-lg active:scale-95"
             >
-              Prendre rendez-vous
+              Prendre RDV
             </Link>
-            <button className="bg-white/40 backdrop-blur-md border-2 border-white/60 text-slate-800 py-2 px-4 rounded-md font-extrabold hover:bg-white transition-all shadow-sm">
+            <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
               Nos Services
             </button>
           </div>
-
-          {/* الإحصائيات مع خلفية زجاجية خفيفة في الموبايل */}
-          <div className="flex gap-10 border-t border-slate-300/30">
-            <div className="group cursor-default">
-              <p className="text-3xl font-black text-slate-900 group-hover:text-cyan-600 transition-colors">10k+</p>
-              <p className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Patients</p>
-            </div>
-            <div className="w-[1px] bg-slate-300/50 h-12" />
-            <div className="group cursor-default">
-              <p className="text-3xl font-black text-slate-900 group-hover:text-cyan-600 transition-colors">15+</p>
-              <p className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Expérience</p>
-            </div>
-          </div>
-
+          
         </div>
       </div>
     </header>
