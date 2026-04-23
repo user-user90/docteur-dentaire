@@ -19,60 +19,59 @@ async function Hero() {
   if (!data) return null;
 
   return (
-    <header className="relative min-h-[90vh] w-full flex items-center justify-center overflow-hidden bg-white">
-      {/* 1. الخلفية - مع تحسين التموضع */}
+    <header className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#56C3E0]">
+      {/* خلفية الصورة */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/dcc2.jpg" 
+          src="/sa.jpg" 
           alt="Medical Background"
           fill
-          className="object-cover object-center" 
+          className="object-cover object-center " // جعل الصورة تمتزج مع لون الخلفية
           priority
         />
-        {/* طبقة بيضاء خفيفة (Radial Gradient) لتفتيح الوسط وضمان وضوح النص */}
-        <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px] md:backdrop-blur-0" />
       </div>
 
-      {/* 2. المحتوى - متمحور في الوسط ليتناسب مع وقفة الطبيب */}
-      <div className="my-12 md:my-0 container mx-auto px-6 relative z-10 text-center">
-        <div className="max-w-4xl mx-auto space-y-10 animate-in fade-in zoom-in duration-1000">
+      <div className=" mt-10 container mx-auto px-6 lg:px-12 relative z-20">
+        <div className="max-w-3xl space-y-8 animate-in fade-in slide-in-from-left-10 duration-1000">
           
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-8xl font-black text-slate-900 leading-tight tracking-tighter">
-              <span className="text-cyan-700">{data.title}</span>
-              <br />
+          <div className="space-y-4">
+            {/* جعلنا العنوان أبيض بالكامل ليتناسب مع الخلفية الملونة */}
+            <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1] drop-shadow-sm">
+              <span className="text-slate-900 block mb-2 opacity-90">{data.title}</span>
               {data.subtitle}
             </h1>
             
-            {/* وصف بلمسة عصرية يتوسط الشاشة */}
-            <p className="text-xl md:text-2xl text-slate-800 font-semibold max-w-2xl mx-auto leading-relaxed px-4 py-2 bg-white/50 backdrop-blur-sm rounded-2xl">
+            {/* نص الوصف بلون كحلي غامق جداً ليكون مقروءاً بوضوح */}
+            <p className="text-xl text-slate-900 font-semibold leading-relaxed max-w-xl border-l-4 border-white pl-4">
               {data.description}
             </p>
           </div>
 
-          {/* أزرار تفاعلية متمحورة */}
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-4">
+          <div className="flex flex-wrap gap-4 pt-4">
+            {/* الزر الرئيسي باللون الكحلي ليبرز فوق الخلفية السماوية */}
             <Link 
               href="/reservations" 
-              className="bg-cyan-600 text-white px-12 py-5 rounded-2xl font-black hover:bg-cyan-700 transition-all shadow-2xl shadow-cyan-200 active:scale-95 w-full sm:w-auto text-lg"
+              className="bg-slate-900 text-white px-10 py-5 rounded-2xl font-extrabold hover:bg-slate-800 transition-all shadow-2xl active:scale-95"
             >
               Prendre rendez-vous
             </Link>
-            <button className="bg-slate-900 text-white px-12 py-5 rounded-2xl font-black hover:bg-slate-800 transition-all shadow-xl w-full sm:w-auto text-lg">
+            
+            {/* الزر الثانوي بلون أبيض شفاف (Glassmorphism) */}
+            <button className="bg-white/20 backdrop-blur-md border-2 border-white/40 text-white px-10 py-5 rounded-2xl font-extrabold hover:bg-white/30 transition-all">
               Nos Services
             </button>
           </div>
 
-          {/* الإحصائيات متمحورة في الأسفل */}
-          <div className="pt-12 flex justify-center gap-12 border-t border-slate-200/60 max-w-lg mx-auto">
-            <div className="text-center">
-              <p className="text-4xl font-black text-slate-900">10k+</p>
-              <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Patients</p>
+          {/* الإحصائيات بألوان متناسقة مع الخلفية */}
+          <div className="pt-10 flex gap-10 border-t border-white/30">
+            <div className="group cursor-default">
+              <p className="text-3xl font-black text-white group-hover:text-slate-900 transition-colors">10k+</p>
+              <p className="text-xs font-black text-slate-900/80 uppercase tracking-[0.2em]">Patients</p>
             </div>
-            <div className="w-[1px] bg-slate-300 h-14" />
-            <div className="text-center">
-              <p className="text-4xl font-black text-slate-900">15+</p>
-              <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Expérience</p>
+            <div className="w-[1px] bg-white/30 h-12" />
+            <div className="group cursor-default">
+              <p className="text-3xl font-black text-white group-hover:text-slate-900 transition-colors">15+</p>
+              <p className="text-xs font-black text-slate-900/80 uppercase tracking-[0.2em]">Expérience</p>
             </div>
           </div>
 
