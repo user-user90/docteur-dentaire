@@ -20,7 +20,7 @@ const links = [
     <Link className="font-bold text-2xl" href={"/"}>Doctor</Link>
     <ul className="hidden md:flex">
       {links?.map((link,index)=>(
-        <li id={index} className="">
+        <li key={index} className="">
           <Link
           className="m-4 font-bold text-gray-700"
           href={link.href}>{link.name}</Link>
