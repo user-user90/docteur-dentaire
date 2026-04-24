@@ -20,7 +20,7 @@ async function Hero() {
 
   return (
     <header className="relative w-full h-screen overflow-hidden flex items-center">
-      {/* 1. الصورة كخلفية كاملة */}
+    {/* image */}
       <Image
         src={data.heroImage}
         alt={data.title}
