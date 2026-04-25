@@ -4,14 +4,14 @@ export default {
   type: "document",
   fields: [
     {
+      name: "order",
+      title: "Order",
+      type: "number",
+      description: "حدد ترتيب العنصر (مثلاً: 1، 2، 3...)",
+    },
+    {
       name: "title",
       title: "Title",
-      type: "string",
-      description: "Title",
-    },
-        {
-      name: "subtitle",
-      title: "subTitle",
       type: "string",
       description: "Title",
     },
@@ -26,7 +26,7 @@ export default {
       title: "Image",
       type: "image",
       options: {
-        hotspot: true, // تفعيل ميزة اختيار منطقة التركيز في الصورة
+        hotspot: true,
       },
       description: "",
     },
