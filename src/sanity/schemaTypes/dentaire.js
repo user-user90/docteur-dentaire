@@ -1,14 +1,8 @@
 export default {
-  name: "Services",
-  title: "Services",
+  name: "Dentaire",
+  title: "Dentaire",
   type: "document",
   fields: [
-    {
-      name: "order",
-      title: "Order",
-      type: "number",
-      description: "حدد ترتيب العنصر (مثلاً: 1، 2، 3...)",
-    },
     {
       name: "title",
       title: "Title",
@@ -19,11 +13,17 @@ export default {
       name: "slug",
       title: "Slug",
       type: "slug",
+      description: "اضغط على Generate لإنشاء رابط الصفحة تلقائياً من العنوان",
       options: {
-        source: "title",
+        source: "title", // سيأخذ النص من حقل title
         maxLength: 96,
       },
-      description: "اضغط على Generate لإنشاء رابط الصفحة تلقائياً",
+    },
+    {
+      name: "subtitle",
+      title: "subTitle",
+      type: "string",
+      description: "Title",
     },
     {
       name: "description",

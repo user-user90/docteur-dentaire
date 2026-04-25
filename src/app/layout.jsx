@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./(website)/Navbar";
+import Footer from "./(website)/_components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +26,10 @@ export default function RootLayout({ children }) {
     >
       <body className="bg-white text-slate-900 min-h-screen flex flex-col">
         <Navbar />
-        {/* نستخدم flex-grow لضمان أن المحتوى يأخذ المساحة المتبقية */}
         <main className="flex-grow">
           {children}
         </main>
+          <Footer/>
         
         {/* يمكنك إضافة Footer هنا لاحقاً */}
       </body>

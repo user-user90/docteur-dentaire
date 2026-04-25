@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 function Navbar() {
   const links = [
     { name: "Accueil", href: "/" },
-    { name: "Services", href: "/services" },
+    { name: "Services", href: "/" },
     { name: "Réserver", href: "/reservations" },
     { name: "Produits", href: "/produits" },
   ];
