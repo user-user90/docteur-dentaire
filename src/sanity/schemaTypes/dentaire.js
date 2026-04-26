@@ -9,13 +9,20 @@ export default {
       type: "string",
       description: "Title",
     },
+ 
+    {
+      name: "emoji",
+      title: "Emoji Icon",
+      type: "string",
+      description: "أدخل إيموجي هنا (مثال: 🦷 أو 🫀)",
+    },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
       description: "اضغط على Generate لإنشاء رابط الصفحة تلقائياً من العنوان",
       options: {
-        source: "title", // سيأخذ النص من حقل title
+        source: "title",
         maxLength: 96,
       },
     },
@@ -31,6 +38,12 @@ export default {
       type: "text",
       description: "Description",
     },
+        {
+      name: "subDesc",
+      title: "sub-Desc",
+      type: "text",
+      description: "Description",
+    },
     {
       name: "urlImage",
       title: "Image",
@@ -40,5 +53,15 @@ export default {
       },
       description: "",
     },
+        {
+      name: "subImage",
+      title: "subImage",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      description: "",
+    },
+   
   ],
 };

@@ -48,7 +48,7 @@ function Navbar() {
         <nav className="container mx-auto flex items-center justify-between">
           
           {/* Logo */}
-          <Link className="font-black text-2xl tracking-tighter text-slate-900" href="/">
+          <Link className=" font-black text-2xl tracking-tighter text-slate-900" href="/">
             DOCTOR<span className="text-cyan-500">.</span>
           </Link>
 
