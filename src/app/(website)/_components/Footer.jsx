@@ -1,8 +1,12 @@
+"use client"
 import React from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 function Footer() {
+  const pathname =usePathname()
+  if (pathname.startsWith("/reservations")) return null
   return (
     <footer className="bg-[#32ABAB] text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -42,10 +46,10 @@ function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-6 border-b-2 border-white/20 pb-2 inline-block">Spécialités</h3>
             <ul className="space-y-4">
-              <li className="opacity-90">Cardiologie</li>
-              <li className="opacity-90">Dentaire</li>
-              <li className="opacity-90">Orthopédie</li>
-              <li className="opacity-90">Ophtalmologie</li>
+              <li className="">Cardiologie</li>
+              <li className="">Dentaire</li>
+              <li className="">Orthopédie</li>
+              <li className="">Ophtalmologie</li>
             </ul>
           </div>
 
