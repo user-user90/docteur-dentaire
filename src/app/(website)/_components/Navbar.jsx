@@ -29,7 +29,7 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
         <div className="container mx-auto  flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
           <div className="flex items-center">
             <span className="text-lg font-black text-slate-900 tracking-wide uppercase">
-              Bienvenue 
+              Bienvenue  
             </span>
           </div>
 
@@ -52,8 +52,8 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
         <nav className="container mx-auto flex items-center justify-between">
           
           {/* Logo */}
-          <Link className="font-black text-2xl tracking-tighter text-slate-900" href="/">
-            doctor-<span className="text-cyan-500">demo</span>
+          <Link className="font-black text-xl md:text-2xl tracking-tighter text-slate-900" href="/">
+            Docteur-<span className="text-cyan-500 text-sm">Maroc</span>
           </Link>
 
           {/* Desktop Links */}
@@ -105,7 +105,7 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
         onClick={closeMenu}
       />
 
-<aside className={`fixed top-0 buttom-0 h-full w-90 bg-white z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out md:hidden ${isOpen ? "translate-y-0" : "translate-y-full"}`}>        <div className="flex flex-col h-full p-8">
+<aside className={`fixed top-0 buttom-0 h-full w-70 bg-white z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out md:hidden ${isOpen ? "translate-y-0" : "translate-y-full"}`}>        <div className="flex flex-col h-full p-8">
           <button 
           aria-label="close-menu"
             onClick={closeMenu}

@@ -1,5 +1,6 @@
 import Services from "./(website)/_components/Services";
 import Hero from "./(website)/_components/Hero";
+import AboutSection from "./(website)/_components/Abouts";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
   <Hero/>
   
 <Services/>
+<AboutSection/>
 </div>
   );
 }
