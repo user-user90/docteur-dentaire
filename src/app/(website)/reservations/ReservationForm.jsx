@@ -24,8 +24,8 @@ export default function ReservationFlow() {
   const today = new Date().toISOString().split('T')[0]
 
   const allWorkHours = [
-    "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
-    "14:00", "14:30", "15:00", "15:30", "16:00", "16:30"
+    "09:00", "09:30", "10:00", "10:30", "11:00", "11:30","12:00",
+    "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:30", "19:30", "20:00"
   ]
 
   useEffect(() => {
@@ -51,6 +51,7 @@ export default function ReservationFlow() {
     fetchTimes()
   }, [selectedDate])
 
+  
   const handleInitiate = async (e) => {
     e.preventDefault()
     setLoading(true)
@@ -106,6 +107,10 @@ export default function ReservationFlow() {
         </div>
 
         <div className="p-8 lg:p-12">
+          
+          {/* ========================================================== */}
+          {/* 🔹 بداية قسم الحجز (Reservation Form)                      */}
+          {/* ========================================================== */}
           {step === "form" ? (
             <form onSubmit={handleInitiate} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -202,6 +207,10 @@ export default function ReservationFlow() {
               </div>
             </form>
           ) : (
+            
+            /* ========================================================== */
+            /* 🔹 بداية قسم التحقق (Verification Form)                     */
+            /* ========================================================== */
             <form onSubmit={handleVerify} className="space-y-6">
               <div className="flex flex-col items-center justify-center text-center py-6">
                 <p className="text-slate-600 mb-4">
@@ -235,6 +244,10 @@ export default function ReservationFlow() {
               </button>
             </form>
           )}
+          {/* ========================================================== */}
+          {/* 🔹 نهاية الأقسام                                           */}
+          {/* ========================================================== */}
+          
         </div>
       </div>
     </div>

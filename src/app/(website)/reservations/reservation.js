@@ -68,12 +68,12 @@ export async function initiateReservation(formData) {
 
     // إرسال كود التحقق
     await resend.emails.send({
-      from: "Docteur Maroc <contact@doctormaroc.com>",
+      from: "Centre Médical <contact@doctormaroc.com>",
       to: email,
-      subject: `Code de confirmation - Docteur Maroc 🏥`,
+      subject: `Code de confirmation - Centre Médical 🏥`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #f1f5f9; padding: 20px; border-radius: 12px; direction: ltr;">
-          <h2 style="color: #0891b2; text-align: center;">Docteur Maroc</h2>
+          <h2 style="color: #0891b2; text-align: center;">Centre Médical</h2>
           <p>Bonjour <strong>${name}</strong>,</p>
           <p>Vous avez demandé un rendez-vous pour le service : <strong>${service}</strong> le ${date} à ${time}.</p>
           <p>Voici votre code de confirmation pour valider votre demande :</p>
@@ -82,7 +82,7 @@ export async function initiateReservation(formData) {
           </div>
           <p style="font-size: 14px; color: #64748b;">Ce code est confidentiel. Si vous n'êtes pas à l'origine de cette demande, veuillez ignorer cet e-mail.</p>
           <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
-          <p style="text-align: center; color: #94a3b8; font-size: 12px;">© 2026 Docteur Maroc - Centre Médical Multidisciplinaire</p>
+          <p style="text-align: center; color: #94a3b8; font-size: 12px;">© 2026 Centre Médical - Centre Médical Multidisciplinaire</p>
         </div>
       `,
     });

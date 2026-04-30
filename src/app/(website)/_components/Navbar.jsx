@@ -28,8 +28,8 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
       <div className="bg-cyan-400 py-2 md:h-12 flex items-center relative z-20">
         <div className="container mx-auto  flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
           <div className="flex items-center">
-            <span className="text-lg font-black text-slate-900 tracking-wide uppercase">
-              Bienvenue  
+            <span className="text-sm font-semibold text-slate-900 tracking-wide uppercase">
+              Bienvenue chez Centre Médical 
             </span>
           </div>
 
@@ -53,7 +53,7 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
           
           {/* Logo */}
           <Link className="font-black text-xl md:text-2xl tracking-tighter text-slate-900" href="/">
-            Docteur-<span className="text-cyan-500 text-sm">Maroc</span>
+            Centre<span className="text-cyan-500 text-[16px] md:text-[18px] ">  Médical</span> 
           </Link>
 
           {/* Desktop Links */}

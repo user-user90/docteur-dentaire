@@ -14,14 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Docteur Sourire | Clinique Dentaire",
-  description: "Soins dentaires de haute qualité pour un sourire éclatant.",
+  title: "Centre Médical | Centre Médical & Clinique Dentaire",
+  description: "Centre médical et clinique dentaire multidisciplinaire. Prenez rendez-vous en ligne pour des soins de santé et dentaires de haute qualité.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="fr" // اللغة الفرنسية للمحتوى
+      lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="bg-white text-slate-900 min-h-screen flex flex-col">
@@ -29,9 +29,7 @@ export default function RootLayout({ children }) {
         <main className="flex-grow">
           {children}
         </main>
-          <Footer/>
-        
-        {/* يمكنك إضافة Footer هنا لاحقاً */}
+        <Footer />
       </body>
     </html>
   );
