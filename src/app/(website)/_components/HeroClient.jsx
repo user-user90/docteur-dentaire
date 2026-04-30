@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 function HeroClient({ data }) {
   return (
-    <header className="relative w-full h-screen overflow-hidden flex items-center">
+    <header className="relative w-full h-[85vh] overflow-hidden flex items-center">
       {/* image */}
       <Image
         src={data.heroImage}
@@ -19,7 +19,7 @@ function HeroClient({ data }) {
       <div className="absolute inset-0 bg-black/40 z-10" />
 
       {/* ## info  && botton*/}
-      <div className="container mx-auto px-6 relative z-20 text-center md:text-left">
+      <div className="container  mx-auto px-6 relative z-20 text-center md:text-left">
         <div className="max-w-3xl space-y-6">
           <div className="space-y-2">
             <motion.h1
@@ -57,7 +57,7 @@ function HeroClient({ data }) {
             >
               <Link
                 href="/reservations"
-                className="bg-cyan-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-cyan-600 transition-all shadow-lg active:scale-95"
+                className="bg-cyan-500 text-white px-4 md:px-8 py-4 rounded-xl font-bold text-lg hover:bg-cyan-600 transition-all shadow-lg active:scale-95"
               >
                 Prendre RDV
               </Link>
@@ -66,7 +66,7 @@ function HeroClient({ data }) {
               initial={{ opacity: 0, y: 20 }} // التغيير هنا: من أسفل لأعلى
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-              className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all"
+              className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 md:px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all"
             >
               Nos Services
             </motion.button>

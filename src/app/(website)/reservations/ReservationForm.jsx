@@ -128,7 +128,7 @@ export default function ReservationFlow() {
                 </div>
                 <div className="flex flex-col">
                   <label className="text-xs font-bold text-slate-500 uppercase mb-2 ml-1 tracking-wider">
-                    Email
+                    E-mail valide pour recevoir le code de confirmation
                   </label>
                   <input
                     required
@@ -167,7 +167,7 @@ export default function ReservationFlow() {
                     min={today}
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
-                    className="border-2 border-slate-100 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50 p-3.5 rounded-xl outline-none transition-all bg-slate-50 text-slate-700"
+                    className="w-full border-2 border-slate-100 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50 p-3.5 rounded-xl outline-none transition-all bg-slate-50 text-slate-700"
                   />
                 </div>
                 <div className="flex flex-col">

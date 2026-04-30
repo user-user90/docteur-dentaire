@@ -34,7 +34,7 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
           </div>
 
           <div className="flex items-center gap-6">
-            <div className="hidden sm:flex items-center gap-2 text-slate-900 font-bold text-[13px]">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-[13px]">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <span>24h/24 7j/7</span>
             </div>
@@ -105,7 +105,7 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
         onClick={closeMenu}
       />
 
-<aside className={`fixed top-0 buttom-0 h-full w-70 bg-white z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out md:hidden ${isOpen ? "translate-y-0" : "translate-y-full"}`}>        <div className="flex flex-col h-full p-8">
+<aside className={`fixed top-0 -buttom-20 h-[90vh] w-full bg-white z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out md:hidden ${isOpen ? "-translate-y-0" : "-translate-y-full"}`}>        <div className="flex flex-col h-full p-8">
           <button 
           aria-label="close-menu"
             onClick={closeMenu}
