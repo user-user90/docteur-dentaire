@@ -53,7 +53,7 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
           
           {/* Logo */}
           <Link className="font-black text-xl md:text-2xl tracking-tighter text-slate-900" href="/">
-            Centre<span className="text-cyan-500 text-[16px] md:text-[18px] ">  Médical</span> 
+            Centre<span className="text-cyan-700 text-[16px] md:text-[18px] ">  Médical</span> 
           </Link>
 
           {/* Desktop Links */}
@@ -105,7 +105,7 @@ if (hideNavbarPaths.some(path => pathname.startsWith(path))) {
         onClick={closeMenu}
       />
 
-<aside className={`fixed top-0 -buttom-20 h-[90vh] w-full bg-white z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out md:hidden ${isOpen ? "-translate-y-0" : "-translate-y-full"}`}>        <div className="flex flex-col h-full p-8">
+<aside className={`fixed top-0 buttom-0 h-full w-full bg-white z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out md:hidden ${isOpen ? "translate-y-0" : "translate-y-full"}`}>        <div className="flex flex-col h-full p-8">
           <button 
           aria-label="close-menu"
             onClick={closeMenu}

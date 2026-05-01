@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { getBookedTimes, initiateReservation, confirmReservation } from "./reservation"
 import Link from "next/link"
 import { LuArrowLeft } from "react-icons/lu"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 export default function ReservationFlow() {
   const router = useRouter()
@@ -88,32 +88,55 @@ export default function ReservationFlow() {
         
         {/* Header */}
         <div className="bg-cyan-600 p-8 text-center relative">
-          <h2 className="text-2xl lg:text-3xl font-bold text-white tracking-tight">
+          <motion.h2
+           initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+          className="text-2xl lg:text-3xl font-bold text-white tracking-tight">
             {step === "form" ? "Prendre un Rendez-vous" : "Validation du Rendez-vous"}
-          </h2>
-          <p className="text-cyan-50 text-sm mt-2 opacity-90">
+          </motion.h2>
+                    {/* ## message comfirmation */}
+          <motion.p
+                 initial={{ opacity: 0, scale:0 }}
+              animate={{ opacity: 1, scale:1 }}
+              transition={{ duration: 0.4 }}
+          className=" text-xs md:text-sm font-bold text-white  mt-2">{step === "form"?"Entrez un e-mail valide pour recevoir un code de confirmation":""}
+          </motion.p>
+ 
+          <motion.p
+           initial={{ opacity: 0, y:-10 }}
+              animate={{ opacity: 1, y:0 }}
+              transition={{ duration: 0.5 }}
+          
+          className="text-cyan-50 text-sm mt-2 opacity-90">
             {step === "form" 
               ? "Réservations disponibles actuellement pour la médecine dentaire uniquement" 
               : "Veuillez entrer le code de vérification envoyé à votre adresse e-mail :"
             }
-          </p>
-          <Link 
+          </motion.p>
+       <motion.div
+       initial={{ opacity: 0, scale:0 }}
+              animate={{ opacity: 1, scale:1 }}
+              transition={{ duration: 0.5 }}
+       >
+            <Link 
             href="/" 
             className="mt-4 text-sm flex items-center gap-2 mx-auto w-fit text-white hover:bg-white/10 px-4 py-1.5 rounded-full transition-all border border-white/20"
           >
             <LuArrowLeft />
             Retour Accueil
           </Link>
+       </motion.div>
         </div>
 
         <div className="p-8 lg:p-12">
           
           {/* ========================================================== */}
-          {/* 🔹 بداية قسم الحجز (Reservation Form)                      */}
+          {/* 🔹 بداية قسم الحجز (Reservation Form)                        */}
           {/* ========================================================== */}
           {step === "form" ? (
             <form onSubmit={handleInitiate} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex flex-col">
                   <label className="text-xs font-bold text-slate-500 uppercase mb-2 ml-1 tracking-wider">
                     Nom Complet
@@ -128,13 +151,25 @@ export default function ReservationFlow() {
                 </div>
                 <div className="flex flex-col">
                   <label className="text-xs font-bold text-slate-500 uppercase mb-2 ml-1 tracking-wider">
-                    E-mail valide pour recevoir le code de confirmation
+                    Email
                   </label>
                   <input
                     required
                     type="email"
                     name="email"
                     placeholder="email@exemple.com"
+                    className="border-2 border-slate-100 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50 p-3.5 rounded-xl outline-none transition-all bg-slate-50 text-slate-700"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label className="text-xs font-bold text-slate-500 uppercase mb-2 ml-1 tracking-wider">
+                    Téléphone
+                  </label>
+                  <input
+                    required
+                    type="tel"
+                    name="phone"
+                    placeholder="Ex: +212 600000000"
                     className="border-2 border-slate-100 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-50 p-3.5 rounded-xl outline-none transition-all bg-slate-50 text-slate-700"
                   />
                 </div>
