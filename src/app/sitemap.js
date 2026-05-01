@@ -11,8 +11,7 @@ const client = createClient({
 export default async function sitemap() {
   const baseUrl = 'https://doctormaroc.com';
 
-  // 1. جلب الخدمات أو الصفحات الديناميكية من قاعدة البيانات (Sanity CMS)
-  // افترضنا أن لديك نوع (type) يسمى "service" ولديه حقل "slug"
+  // 1. جلب الخدمات من قاعدة البيانات
   const services = await client.fetch(`*[_type == "Services"]{
     "slug": slug.current,
     _updatedAt
@@ -38,7 +37,6 @@ export default async function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-
   ];
 
   // 3. تحويل الخدمات الديناميكية إلى مسارات (URLs)
