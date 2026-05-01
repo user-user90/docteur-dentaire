@@ -4,7 +4,6 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...tool]]\page.jsx` route
  */
 
-import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 
@@ -21,8 +20,12 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool({structure}),
-    // Vision is for querying with GROQ from inside the Studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({defaultApiVersion: apiVersion}),
+    // تم إزالة visionTool لإخفاء أداة الاستعلامات الخاصة بالمطورين
   ],
+  studio: {
+    components: {
+      // يقوم بإخفاء الشريط العلوي (Navbar) بالكامل
+      navbar: () => null, 
+    },
+  },
 })
