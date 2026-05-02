@@ -2,12 +2,13 @@
 
 export const structure = (S) =>
   S.list()
-    .title('Admin Centre Médical')
+    .title("Admin Centre Médical")
     .items([
       // إضافة الخدمات الطبية
-      S.documentTypeListItem('Services').title('Services'),
-      
+      S.documentTypeListItem("Services").title("Services"),
+
+      // ##
+      S.documentTypeListItem("Dentaire").title("Spécialités médicales"),
       // إضافة طلبات الحجز
-      S.documentTypeListItem('reservation').title('Reservations'),
-      // ## 
+      S.documentTypeListItem("reservation").title("Reservations"),
     ]);

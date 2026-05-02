@@ -25,7 +25,9 @@ function Footer() {
               <Link href="#" className="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-white hover:text-[#32ABAB] transition-all">
                 <FaInstagram />
               </Link>
-              <Link href="#" className="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-white hover:text-[#32ABAB] transition-all">
+              <Link href="https://www.linkedin.com/in/abdelhafid-ahdidou/"
+              target='_blanck'
+              className="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-white hover:text-[#32ABAB] transition-all">
                 <FaLinkedinIn />
               </Link>
             </div>
@@ -59,7 +61,7 @@ function Footer() {
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <FaMapMarkerAlt className="mt-1 text-xl" />
-                <span className="opacity-90">123 Avenue Mohamed V, Casablanca, Maroc</span>
+                <span className="opacity-90">123 Avenue Mohamed V, Tanger, Maroc</span>
               </li>
               <li className="flex items-center gap-4">
                 <FaPhoneAlt />
@@ -67,7 +69,7 @@ function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <FaEnvelope />
-                <span className="opacity-90">contact@doctormaroc.com</span>
+                <span className="opacity-90">ex@doctormaroc.com</span>
               </li>
             </ul>
           </div>
